@@ -1,13 +1,74 @@
 ===============================================================================
-   Installation and Usage Instructions of the Mini-Patient Registry
+          Mini-Patient Registry
 ===============================================================================
 
-I. Files and Directories
+The Mini-Patient Registry is a demonstration of a simple patient cache using
+the following technologies:
+    Spring Boot
+    JPA / Hibernate
+    Sl4j
+    JUnit and Mockito
+    MySQL
 
-    /mini-pr         : Application source code
-    miniPr.sql       : The database schema creation DDL
-    miniPr_drop.sql  : DDL to drop the schema tables
-    miniPr_data.sql  : Patient data to load into the schema
+I. Installation and Configuration
+
+    1. Download the project from github: https://github.com/niuhuskies91/mini-pr
+       This creates the following directory structure:
+         <git project root>/
+             /mini-pr/       ==> The application source code
+             miniPr.sql      ==> Data schema creation DDL
+             miniPr_drop.sql ==> Data schema drop DDL
+             miniPr_data.sql ==> DDL to populate the schema with data
+             README.txt      ==> This file
+             settings.xml    ==> maven configuration file
+
+    2. Install and configure MySQL (version 8.0.13+) with the 
+       following credentials:
+            user:     root
+            password: Pa55word!
+        Make sure MySQL is running locally
+
+    3. Create the DB schema and seed the database with the DDL 
+       provided in the github repo.
+         a) run the DDL in miniPr.sql to create the schema
+         b) run the DDL in miniPr_data.sql to seed the data
+
+    4. Install the Java IDE of your choice. This project was created using
+       STS (Spring Tool Suite). Make sure you are using JDK 1.8
+
+    5. Please note the application project was created using maven so
+       ensure your IDE has the maven plugin installed
+
+    6. Crete the following under your file systems /Users/<your user>/
+          directory:  /.m2
+
+    7. Copy the settings.xml file (downloaded from the github repo)
+       and place into: /Users/<your user>/.m2/
+
+    *** Note: Steps 8 and 9 assume the IDE used is STS
+
+    8. Import the mini-pr project into the IDE and do the following:
+        a) right click on the mini-pr project
+        b) select "Maven" ==> "Update Project..."
+       This will download all of the maven dependencies and build the app
+
+    9. Prepare the Boot Dashboard server
+        a) Open the "Boot Dashboard" tab
+        b) Under "local" locate "mini-pr"
+        c) Right click on "mini-pr" ==> "Open Config"
+        d) On the "Spring Boot" tab, select:
+                Profile: "local"
+            Click "Apply"
+
+            This will tell STS boot dashboard to use the local profile
+            configurations located in the project under:
+
+            /src/main/resources/application-local.properties
+
+            Note 1: if you change the RDBMS from MySQL or you change the
+                    user credential you must modify this file.
+            Note 2: if you change the RDBMS from MySQL you must
+                    change the dependency in the pom.xml
 
 II. Test patients:
     
@@ -27,28 +88,23 @@ II. Test patients:
     | 10000000002      |  XYYZ         | XYZ1000002     |
     |------------------|---------------|----------------|
 
-III. Database
-
-    The application is configured to use MySQL. The DB properties 
-    from application-local.properties include:
-
-        spring.datasource.url = jdbc:mysql://localhost:3306/mini_pr?....
-        spring.datasource.username = root
-        spring.datasource.password = Pa55word!
-
-IV. Development environment
-
-    This was developed using STS (Spring Tool Suite), but should run
-    on any IDE.
-
-    Dependency management is maven.
-
-V. Testing
+III. Testing
 
     The Swagger endpoint is:  http://localhost:8080/mini-pr/swagger-ui.html
-        Test parameters:
-            sourceSystem:  (see II above)
-            mrn:           (see II above)
+
+    Available services include:
+
+        Get: /retrieval/sourceSystem/{sourceSystem}/mrn/{mrn} 
+
+            where:
+                {sourceSystem}:  (see II above)
+                {mrn}:           (see II above)
+
+            This endpoint performs a basic patient retrieval based on
+            source system and mrn (eg., a PDQ). The result is a fully
+            populated patient demographics response in JSon format.
+
+IV. Notes of interest
 
     There is full bulletproofing so that no exceptions escape outside of
     the controller. An ExceptionHandler captures them and sets the appropriate
