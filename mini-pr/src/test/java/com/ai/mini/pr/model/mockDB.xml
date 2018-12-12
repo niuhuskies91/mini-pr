@@ -1,0 +1,14 @@
+<dataset>
+   <address
+      id = 1
+      eid = 10000000001
+      ADDRESS_LINE1 = "1060 W Addison St"
+      ADDRESS_LINE2 = "Suite 100"
+      CITY = "Chicago"
+      STATE = "IL"
+      POSTAL_CODE = "60613"
+      COUNTRY = "USA"
+      TYPE = "H"
+      COUNTY = "Cook"
+   />
+</dataset>
