@@ -2,6 +2,7 @@ package com.ai.mini.pr.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
@@ -25,14 +26,31 @@ public class Address implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(name = "EID")
 	private Long eid;
+	
+	@Column(name = "ADDRESS_LINE1")
 	private String addressLine1;
+	
+	@Column(name = "ADDRESS_LINE2")
 	private String addressLine2;
+	
+	@Column(name = "CITY")
 	private String city;
+	
+	@Column(name = "STATE")
 	private String state;
+	
+	@Column(name = "POSTAL_CODE")
 	private String postalCode;
+	
+	@Column(name = "COUNTRY")
 	private String country;
+	
+	@Column(name = "TYPE")
 	private String type;
+	
+	@Column(name = "COUNTY")
 	private String county;
 	
 	public Long getId() {
@@ -95,6 +113,7 @@ public class Address implements Serializable {
 	public void setCounty(String county) {
 		this.county = county;
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -172,5 +191,4 @@ public class Address implements Serializable {
 			return false;
 		return true;
 	}
-	
 }

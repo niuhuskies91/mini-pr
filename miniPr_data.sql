@@ -118,11 +118,11 @@ values(10000000002, 'PRN', 'Internet', 'jane.doe@whitehouse.gov');
 
 insert into mini_pr.MINI_PR_DEMOGRAPHICS 
 	(EID, DOB, GENDER, RACE, MARITAL_STATUS, RELIGION, SSN, DEATH_IND, DOD) 
-values(10000000001, str_to_date('06/04/1969', '%d/%m/%Y'), 'M', '2106-3',
-       'M', 'ATH', '999-99-9999', 'Y', str_to_date('06/04/2009', '%d/%m/%Y'));
+values(10000000001, str_to_date('06/04/1969', '%m/%d/%Y'), 'M', '2106-3',
+       'M', 'ATH', '999-99-9999', 'Y', str_to_date('06/04/2009', '%m/%d/%Y'));
 
 insert into mini_pr.MINI_PR_DEMOGRAPHICS 
 	(EID, DOB, GENDER, RACE, MARITAL_STATUS, RELIGION, SSN, DEATH_IND) 
-values(10000000002, str_to_date('07/09/1999', '%d/%m/%Y'), 'F', '2106-3',
+values(10000000002, str_to_date('07/09/1999', '%m/%d/%Y'), 'F', '2106-3',
        'S', 'ATH', '999-99-9999', 'N');
 

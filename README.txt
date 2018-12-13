@@ -104,14 +104,49 @@ III. Testing
             source system and mrn (eg., a PDQ). The result is a fully
             populated patient demographics response in JSon format.
 
-IV. Notes of interest
+IV. Appendices
 
-    There is full bulletproofing so that no exceptions escape outside of
-    the controller. An ExceptionHandler captures them and sets the appropriate
-    Http Status code with generated error message. A simple test of this
-    is to put invalid source system or MRN values in Swagger.
+    A. JUnit testing
 
-    Debug logging is enabled and there are two sets of output that will
-    be printed to the log:
+        The Repository JUnit tests are integration and tied to the
+        MySQL database being active. I did not have time to finish research
+        mocking out the DB with XML data.
+
+        Full code coverage scenarios have been provided for:
+
+          1) Utility classes
+          2) Mapper classes
+          3) Service classes
+          4) Jpa Repository classes
+
+        The gap in in test coverage lies in areas:
+
+          5) DTO and Model classes. Most of the code coverage gaps
+             are the hashCode() and equals() methods generated in STS.
+             There was just not enough time to provide full code and 
+             scenario coverage for these.
+
+          6) The Controller is not a functioning Mock test class.
+             I came across various issues with MockMvc I have not before.
+             If I had more time I would probably figure it out; I'm guessing
+             it is an issue with mocking JPA
+       
+    B. Notes of interest
+
+      There is full bulletproofing so that no exceptions escape outside of
+      the controller. An ExceptionHandler captures them and sets the appropriate
+      Http Status code with generated error message. A simple test of this
+      is to put invalid source system or MRN values in Swagger.
+
+      Debug logging is enabled and there are two sets of output that will
+      be printed to the log:
         - The full JSon response payload
         - Begin and end processing timestamps with time differential
+
+      Hibernate is configured to log SQL to standard output.
+
+    C. Wish list:
+
+        Create an endpoint to accept an HL7 QBP^Q22 message.
+
+        

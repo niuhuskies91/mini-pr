@@ -18,7 +18,6 @@ import org.mockito.MockitoAnnotations;
 import com.ai.mini.pr.MiniPrTest;
 import com.ai.mini.pr.dto.PatientRecord;
 import com.ai.mini.pr.dto.PdqResponse;
-import com.ai.mini.pr.exception.DataNotFoundException;
 import com.ai.mini.pr.model.Address;
 import com.ai.mini.pr.model.Demographics;
 import com.ai.mini.pr.model.Name;

@@ -3,6 +3,7 @@ package com.ai.mini.pr.model;
 import java.io.Serializable;
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
@@ -25,15 +26,32 @@ public class Demographics implements Serializable {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
+
+	@Column(name = "EID")
 	private Long eid;
+	
+	@Column(name = "DOB")
 	private Date dob;
+	
+	@Column(name = "GENDER")
 	private String gender;
+	
+	@Column(name = "RACE")
 	private String race;
+	
+	@Column(name = "MARITAL_STATUS")
 	private String maritalStatus;
+	
+	@Column(name = "RELIGION")
 	private String religion;
+	
+	@Column(name = "SSN")
 	private String ssn;
+	
+	@Column(name = "DEATH_IND")
 	private String deathInd;
+	
+	@Column(name = "DOD")
 	private Date dod;
 	
 	public Long getId() {

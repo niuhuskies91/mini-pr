@@ -2,6 +2,7 @@ package com.ai.mini.pr.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
@@ -25,12 +26,25 @@ public class Name implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(name = "EID", nullable = false)
 	private Long eid;
+	
+	@Column(name = "LAST_NAME")
 	private String lastName;
+	
+	@Column(name = "FIRST_NAME")
 	private String firstName;
+	
+	@Column(name = "MIDDLE_NAME")
 	private String middleName;
+	
+	@Column(name = "SUFFIX")
 	private String suffix;
+	
+	@Column(name = "TITLE")
 	private String title;
+	
+	@Column(name = "TYPE_CODE")
 	private String typeCode;
 	
 	public Long getId() {

@@ -2,6 +2,7 @@ package com.ai.mini.pr.model;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
@@ -25,9 +26,16 @@ public class Telecom implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	@Column(name = "EID")
 	private Long eid;
+	
+	@Column(name = "USE_CODE")
 	private String useCode;
+	
+	@Column(name = "TYPE_CODE")
 	private String typeCode;
+	
+	@Column(name = "VALUE")
 	private String value;
 	
 	public Long getId() {
