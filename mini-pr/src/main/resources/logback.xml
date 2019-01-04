@@ -12,7 +12,7 @@
 		<appender-ref ref="STDOUT" />
 	</root>
 	
-	<logger name="com.ai.mini.pr" level="DEBUG">
+	<logger name="org.apcffl.mini.pr" level="DEBUG">
 		<appender-ref ref="STDOUT" />
 	</logger>
 	
